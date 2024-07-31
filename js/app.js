@@ -1,19 +1,18 @@
 function verificar() {
-    let numeros = [];
 
-    for (i = 0; i < 3; i++) {
-        numeros.push(document.getElementById(`numero__${i + 1}`).value);
-        // console.log(numeros[i]);
-        // console.log(numeros.length);
+    const palavra = document.getElementById('nome__teste').value;
+    var ignoraEspaco = palavra.replace(/\s/g, '');
+    if (ignoraEspaco === '') {
+        alert('O campo não pode estar vázio!');
+    // } else if (isNaN(ignoraEspaco) == false) {
+    //     alert('Não pode conter números!');
+    } else {
+        const reverso = ignoraEspaco.split('').reverse().join('');
+        if (ignoraEspaco === reverso) {
+            alert(`"${ignoraEspaco}" de trás para frente fica "${reverso}", sendo assim é um Palíndromo.`);
+        } else {
+            alert(`"${ignoraEspaco}" de trás para frente fica "${reverso}", sendo assim, não é um Palíndromo.`);
+        }
 
     }
-    numeros.sort(ordenador);
-    alert(`Os numeros ordenados? ${numeros}`);
-
 }
-
-function ordenador(a, b) {
-    return (a - b);
-}
-
-
